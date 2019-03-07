@@ -8,11 +8,16 @@ const BUTTONS: string[] = [
 ];
 
 export class TenebrotBot {
-    private token = 'xxxxxxxx'; // Mettre le vrai token ici
+
     private bot: TelegramBot;
 
     constructor () {
-        this.bot = new TelegramBot(this.token, {polling: true});
+        const token = process.env.TENEBROT_TOKEN;
+
+        if (!token) {
+            throw new Error('Telegram token not found');
+        }
+        this.bot = new TelegramBot(token, { polling: true });
     }
 
     public listen (): void {
@@ -29,8 +34,8 @@ export class TenebrotBot {
     private askWhoAreYou (chat_id: number) {
         let msg = 'I am Dalek! Who are you ?';
         let buttons: TelegramBot.KeyboardButton[][] = [
-            [ { text: BUTTONS[0] }, { text: BUTTONS[1] }],
-            [ { text: BUTTONS[2] }, { text: BUTTONS[3] }]
+            [{ text: BUTTONS[0] }, { text: BUTTONS[1] }],
+            [{ text: BUTTONS[2] }, { text: BUTTONS[3] }]
         ];
         let replyKeybord: TelegramBot.ReplyKeyboardMarkup = { keyboard: buttons, one_time_keyboard: true };
         let options: TelegramBot.SendBasicOptions = { reply_markup: replyKeybord };

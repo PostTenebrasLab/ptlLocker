@@ -5,5 +5,7 @@
     "spellright.documentTypes": [
         "latex",
         "plaintext"
-    ]
+    ],
+    "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+    "typescript.format.insertSpaceBeforeFunctionParenthesis": true
 }
