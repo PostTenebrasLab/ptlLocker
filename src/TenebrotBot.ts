@@ -11,7 +11,7 @@ export class TenebrotBot {
 
     private bot: TelegramBot;
 
-    constructor() {
+    constructor () {
         const token = process.env.TENEBROT_TOKEN;
 
         if (!token) {
