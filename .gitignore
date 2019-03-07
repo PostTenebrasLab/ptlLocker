@@ -31,3 +31,6 @@ dist/
 
 packages/
 
+# Local Environment Settings
+.env
+
