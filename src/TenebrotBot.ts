@@ -20,7 +20,7 @@ export class TenebrotBot {
         this.bot = new TelegramBot(token, { polling: true });
     }
 
-    public listen(): void {
+    public listen (): void {
         this.bot.on('message', (msg: TelegramBot.Message) => {
             console.log(msg);
             if (msg.text === '\\start' || msg.text === 'hello') {
@@ -31,7 +31,7 @@ export class TenebrotBot {
         });
     }
 
-    private askWhoAreYou(chat_id: number) {
+    private askWhoAreYou (chat_id: number) {
         let msg = 'I am Dalek! Who are you ?';
         let buttons: TelegramBot.KeyboardButton[][] = [
             [{ text: BUTTONS[0] }, { text: BUTTONS[1] }],
@@ -42,7 +42,7 @@ export class TenebrotBot {
         this.bot.sendMessage(chat_id, msg, options);
     }
 
-    private reply(chat_id: number, answer: string) {
+    private reply (chat_id: number, answer: string) {
         let msg: string;
         switch (answer) {
             case BUTTONS[0]:
