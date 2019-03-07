@@ -24,10 +24,10 @@
   "_shasum": "1c7e50d285c3427fd7ddb716147fc558b3d55754",
   "_spec": "@nobrainr/typescript_universal-webpack-karma_jasmine@^1.0.0",
   "_where": "C:\\Users\\Mymy\\AppData\\Roaming\\npm-cache\\_npx\\7296\\node_modules\\create-ts-lib",
-  "author": "",
-  "bundleDependencies": false,
+  "author": "PTLTypescripters (MymyP, pliski)",
+  "bundleDependencies": [],
   "deprecated": false,
-  "description": "",
+  "description": "ptl lockers manager",
   "devDependencies": {
     "@types/dotenv": "^6.1.0",
     "@types/jasmine": "^2.5.53",
@@ -52,6 +52,7 @@
     "rimraf": "^2.6.1",
     "source-map-loader": "^0.2.1",
     "style-loader": "^0.22.1",
+    "ts-node": "^8.0.2",
     "tslint-loader": "^3.5.3",
     "tslint": "^5.5.0",
     "typescript": "^3.0.1",
@@ -64,22 +65,18 @@
   },
   "license": "ISC",
   "main": "src/index.ts",
-  "name": "mymy-bot",
+  "name": "ptl-locker",
   "scripts": {
     "build": "npm run build:prod",
     "build:dev": "webpack --mode development --config ./webpack.config.js --progress --color --display-error-details",
     "build:prod": "cross-env NODE_ENV=production webpack --mode production --config ./webpack.config.js  --progress  --color --display-error-details --bail",
     "clean": "npm cache clear && rimraf -- dist",
-    "server": "npm run server:dev",
-    "server:dev": "webpack-dev-server --mode development --config ./webpack.config.js --hot --inline --progress --watch --open",
-    "server:prod": "cross-env NODE_ENV=production webpack-dev-server  --mode production --config ./webpack.config.js --port 3000 --host 0.0.0.0 --hot --inline --progress  --watch --open --content-base dist/",
-    "start": "npm run server:dev",
+    "start": "ts-node src/index.ts",
     "test": "karma start"
   },
   "version": "0.0.1",
   "dependencies": {
     "@types/node-telegram-bot-api": "^0.30.4",
-    "node-telegram-bot-api": "^0.30.0",
-    "ts-node": "^8.0.2"
+    "node-telegram-bot-api": "^0.30.0"
   }
 }
