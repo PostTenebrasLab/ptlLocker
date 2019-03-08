@@ -1,6 +1,3 @@
-// import TelegramBot = require("node-telegram-bot-api");
-// console.log(TelegramBot.name);
-
 import { config } from 'dotenv';
 const result = config();
 if (result.error) {
