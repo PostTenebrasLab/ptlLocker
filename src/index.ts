@@ -1,3 +1,6 @@
+// import TelegramBot = require("node-telegram-bot-api");
+// console.log(TelegramBot.name);
+
 import { config } from 'dotenv';
 const result = config();
 if (result.error) {
@@ -18,7 +21,6 @@ const figletCallback = (err: Error, data: string) => {
 }
 
 figlet('PTL', 'ANSI Shadow', figletCallback);
-figlet('locker \n system\n  manager', 'Small Slant', figletCallback);
-
 const tenebrot = new TenebrotBot();
+figlet('locker \n system\n  manager', 'Small Slant', figletCallback);
 tenebrot.listen();
