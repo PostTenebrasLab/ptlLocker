@@ -1,12 +1,13 @@
 import { config } from 'dotenv';
 const result = config();
+if (result.error) {
+    throw result.error;
+}
 
 import figlet = require('figlet');
 import { TenebrotBot } from './TenebrotBot';
 
-if (result.error) {
-    throw result.error;
-}
+console.log('');
 
 const figletCallback = (err: Error, data: string) => {
     if (err) {
