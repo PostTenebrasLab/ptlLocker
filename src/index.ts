@@ -1,15 +1,23 @@
 import { config } from 'dotenv';
 const result = config();
 
+import figlet = require('figlet');
+import { TenebrotBot } from './TenebrotBot';
+
 if (result.error) {
     throw result.error;
 }
 
-console.log(result.parsed);
+const figletCallback = (err: Error, data: string) => {
+    if (err) {
+        console.log('Figlet - Something went wrong...');
+        console.dir(err);
+    }
+    console.log(data)
+}
 
-import { TenebrotBot } from './TenebrotBot';
-
-console.log('See this in your browser console: Typescript Webpack Starter Launched');
+figlet('PTL', 'ANSI Shadow', figletCallback);
+figlet('locker \n system\n  manager', 'Small Slant', figletCallback);
 
 const tenebrot = new TenebrotBot();
 tenebrot.listen();
