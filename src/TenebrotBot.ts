@@ -27,14 +27,24 @@ export class TenebrotBot {
     }
 
     public listen (): void {
+
+        this.bot.onText(/\/start/, this.onStart.bind(this));
+
         this.bot.on('message', (msg: TelegramBot.Message) => {
             console.log(msg);
-            if (msg.text === '\\start' || msg.text === 'hello') {
-                this.askWhoAreYou(msg.chat.id);
-            } else {
-                this.reply(msg.chat.id, msg.text);
-            }
+            // if (msg.text === '\\start' || msg.text === 'hello') {
+            //     this.askWhoAreYou(msg.chat.id);
+            // } else {
+            //     this.reply(msg.chat.id, msg.text);
+            // }
         });
+    }
+
+    private onStart (msg: TelegramBot.Message): void {
+        console.log('START');
+        console.dir(msg);
+        console.log('START - end');
+        this.createStartResponse(msg.chat.id);
     }
 
     private askWhoAreYou (chat_id: number) {
@@ -42,6 +52,17 @@ export class TenebrotBot {
         let buttons: TelegramBot.KeyboardButton[][] = [
             [{ text: BUTTONS[0] }, { text: BUTTONS[1] }],
             [{ text: BUTTONS[2] }, { text: BUTTONS[3] }]
+        ];
+        let replyKeybord: TelegramBot.ReplyKeyboardMarkup = { keyboard: buttons, one_time_keyboard: true };
+        let options: TelegramBot.SendBasicOptions = { reply_markup: replyKeybord };
+        this.bot.sendMessage(chat_id, msg, options);
+    }
+
+    private createStartResponse (chat_id: number) {
+        let msg = 'Welcome';
+        let buttons: TelegramBot.KeyboardButton[][] = [
+            [{ text: "I'm not a robot" }],
+            [{ text: "I'm a robot" }],
         ];
         let replyKeybord: TelegramBot.ReplyKeyboardMarkup = { keyboard: buttons, one_time_keyboard: true };
         let options: TelegramBot.SendBasicOptions = { reply_markup: replyKeybord };
@@ -67,6 +88,10 @@ export class TenebrotBot {
                 msg = 'EXTERMINATE !!!! EXTERMINATE !!!!'
         }
         this.bot.sendMessage(chat_id, msg);
+    }
+
+    private send (chat_id: number, text: string, options: TelegramBot.SendMessageOptions): void {
+        this.bot.sendMessage(chat_id, text, options);
     }
 
 }
