@@ -8,4 +8,4 @@
 - [ ] (bot) ask for phone number at /start
 - [ ] (archi) evaluate https://telegraf.js.org
 - [ ] (archi) test environment
-- [ ] (archi) git branch dev
+- [X] (archi) git branch dev
