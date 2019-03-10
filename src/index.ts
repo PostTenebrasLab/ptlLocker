@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { config } from 'dotenv';
 const result = config();
 if (result.error) {
