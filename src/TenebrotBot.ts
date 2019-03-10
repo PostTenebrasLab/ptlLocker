@@ -1,4 +1,10 @@
-import * as TelegramBot from 'node-telegram-bot-api'
+// telegram bot api bugfix. Don't move nor delete. See:
+// https://github.com/yagop/node-telegram-bot-api/issues/319 ,
+// https://github.com/yagop/node-telegram-bot-api/issues/540 .
+process.env.NTBA_FIX_319 = '1';
+// End bugfix
+
+import * as TelegramBot from 'node-telegram-bot-api';
 
 const BUTTONS: string[] = [
     'I am the Doctor',

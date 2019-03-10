@@ -34,3 +34,5 @@ packages/
 # Local Environment Settings
 .env
 
+
+deploy\.sh
