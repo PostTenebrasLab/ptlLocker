@@ -18,9 +18,9 @@
   "name": "ptl-locker",
   "scripts": {
     "build": "rimraf -- dist && tsc",
-    "prerun": "npm run build",
+    "prerun": "yarn run build",
     "run": "node dist/index.js",
-    "clean": "npm cache clear && rimraf -- dist",
+    "clean": "yarn cache clear && rimraf -- dist",
     "start": "ts-node src/index.ts"
   },
   "version": "0.0.1",
