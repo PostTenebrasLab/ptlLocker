@@ -67,12 +67,11 @@
   "main": "src/index.ts",
   "name": "ptl-locker",
   "scripts": {
-    "build": "npm run build:prod",
-    "build:dev": "webpack --mode development --config ./webpack.config.js --progress --color --display-error-details",
-    "build:prod": "cross-env NODE_ENV=production webpack --mode production --config ./webpack.config.js  --progress  --color --display-error-details --bail",
-    "clean": "npm cache clear && rimraf -- dist",
-    "start": "ts-node src/index.ts",
-    "test": "karma start"
+    "build": "rimraf -- dist && tsc",
+    "prerun": "yarn run build",
+    "run": "node dist/index.js",
+    "clean": "yarn cache clear && rimraf -- dist",
+    "start": "ts-node src/index.ts"
   },
   "version": "0.0.1",
   "dependencies": {
