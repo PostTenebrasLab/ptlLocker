@@ -21,6 +21,7 @@ const figletCallback = (err: Error, data: string) => {
 figlet('PTL', 'ANSI Shadow', figletCallback);
 setTimeout(() => {
     figlet('locker \n system\n  manager', 'Small Slant', figletCallback);
+    figlet('1v0', figletCallback);
 }, 300);
 const tenebrot = new TenebrotBot();
 tenebrot.listen();
